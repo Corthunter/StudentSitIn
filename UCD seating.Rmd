@@ -1,6 +1,6 @@
 ---
 title: "Student Sit In"
-author: "your name here"
+author: "Cortajha Hunter"
 date: "10/26/2019"
 output: 
   html_document:
@@ -22,7 +22,7 @@ Students at UCD- is there a relation between where one sits and one's major?
 
 <!-- where is the data found?  Is this an experiment or an observational study?  !-->
 
-Data from this study came from... 
+Data from this study came from UC Davis, in which there was 173 students.
 
 
 
@@ -37,54 +37,59 @@ $H_A$: where one sits in class and one's major are related
 
 <!-- Get the data: !-->
 
-names of the data in the data frame
-
-```{r echo=FALSE}
-UCDdataframe = data.frame(seat=ucdavis1$Seat, major=ucdavis1$class, data=ucdavis1)
-names(UCDdataframe)
-```
 ## Methods
 
 <!--  describe analysis methods here 
 what are the variable types, and indicate gaphical, numerical, and inferential methods appropriate
 for this question  !--> 
 
+In this data chart; the percentage of student were either enrolled into Liberal Arts or Non-Liberal Art and it shows the percentages of the students who sat in the back, front, and middle of the classroom. 
 
 ## Data summary
 
 **Graphical summary**
 put the graphic description of the data here
 
-```{r}
+In the graph, apporximately 80% of students that sat in back, front and middle of the classroom were Non-Liberal.
 
+
+```{r echo=FALSE}
+barchartGC(~Seat+class, data=ucdavis1, main='ucdavis$seats', type='percent', xlab='SEAT')
 ```
 
 Explain what the graph shows
+
+There were about 35% of student who sat in the back, front, and middle who were in Liberal Arts. 
+
 
 
 **Numerical summary**
 put numerical summary here
 
 ```{r}
+tab=xtabs(~Seat+class, data=ucdavis1)
+print(tab)
 
 ```
 
-Explain what the numeric summary says
+Explain what the numeric summary says that the student whom are in Liberal Arts shows similar, yet low numbers, while there is an increase in the Non-Liberal students. 
 
 ## Inferential Results
 put the inferential test for the the null hypothesis here
 
 ```{r}
-
+chisqtestGC(tab)
 ```
 
-what is the p-value?
+what is the p-value? .22 > .05
 
 ## Results and conclusions
 
 <!-- explain-- is there evidence that certain majors tend to sit in particular areas of the class?  Can the results of this test be generalized to all majors in all universities? !-->
 
 explain the result, can the result be generalized?
+
+The students from UC Davis 
 
 <!--
 push results to your github account, turn in the URL
